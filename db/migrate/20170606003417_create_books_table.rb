@@ -1,4 +1,4 @@
-class CreateBooks < ActiveRecord::Migration[5.0]
+class CreateBooksTable < ActiveRecord::Migration[5.0]
   def change
     create_table :books do |t|
       t.integer :isbn
@@ -8,5 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_index :books, [:user_id, :created_at]
   end
 end
