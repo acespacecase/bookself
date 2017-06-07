@@ -17,8 +17,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @book.user %>
+  <%= @book.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<p><strong>Tags:</strong></p>
+<ul>
+<% @book.tags.each do |tag| %>
+  <li><%= tag.name %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_user_book_path(@book) %> |
+<%= link_to 'Back', user_path(@user) %>

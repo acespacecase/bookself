@@ -3,7 +3,7 @@
 <p><%= @user.email %></p>
 
 <% @user.books.all.each do |book| %>
-  <p><%= book.title %>, by <%= book.author %></p>
+  <p><%= link_to book.title, user_book_path(:user_id => @user.id) %>, by <%= book.author %></p>
 <% end %>
 
 

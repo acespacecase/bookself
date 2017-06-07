@@ -11,6 +11,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @user = User.find(params[:id])
+
   end
 
   # GET /books/new
@@ -60,6 +62,10 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def check_books
+    @books = @user.books
   end
 
   private
