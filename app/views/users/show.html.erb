@@ -2,5 +2,10 @@
 
 <p><%= @user.email %></p>
 
+<% @user.books.all.each do |book| %>
+  <p><%= book.title %>, by <%= book.author %></p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
