@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :books do
-      resources :tags
-    end
+    resources :books, shallow: true
+  end
+
+  resources :books do
+    resources :tags, shallow: true
   end
 
   devise_for :users
