@@ -4,8 +4,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @user = User.find(@book.user_id)
-
+    @user = User.find(params[:user_id])
+    @books = @user.books.all
   end
 
   # GET /books/1
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = @user.Book.new(params[:book])
+    @book = Book.new
   end
 
   # GET /books/1/edit
