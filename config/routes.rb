@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'users#index'
-  get '/signup', to: 'users#new'
+  get '/signup', to: 'devise/registration#new'
 
 
 end
