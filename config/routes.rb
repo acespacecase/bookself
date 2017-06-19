@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'users#index'
 
+  get '/signup', to: 'users#new'
 end
