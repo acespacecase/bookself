@@ -5,7 +5,9 @@ This app uses:
 * Rails 5.0.3
   * devise
 
-## Configuration
+## Installation
+
+`bundle install`
 
 If bcrypt gives you issues, run:
 `gem uninstall bcrypt`
