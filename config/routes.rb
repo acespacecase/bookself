@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root 'users#index'
 
   get '/signup', to: 'users#new'
 
@@ -12,5 +11,12 @@ Rails.application.routes.draw do
     get '/login', to: 'devise/sessions#new'
     get '/logout', to: 'devise/sessions#destroy'
   end
+
+  authenticated :user do
+    root to: 'books#index'
+  end
+
+  root 'users#index'
+
 
 end
