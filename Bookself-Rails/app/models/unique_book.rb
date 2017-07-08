@@ -1,0 +1,2 @@
+class UniqueBook < ApplicationRecord
+end

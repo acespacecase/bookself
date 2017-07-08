@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :books, shallow: true
-  end
 
   devise_for :users
 
@@ -9,8 +6,15 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/login', to: 'devise/sessions#new'
-    get '/logout', to: 'devise/sessions#destroy'
+    delete '/logout', to: 'devise/sessions#destroy'
   end
+
+  resources :users do
+    resources :books, only: [:index]
+  end
+
+  resources :books
+
 
   authenticated :user do
     root to: 'books#index'
