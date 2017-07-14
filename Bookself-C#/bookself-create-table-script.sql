@@ -2,7 +2,7 @@ create table book
 (
 	isbn		int				not null,
 	title		varchar(200)	not null,
-	authors		varchar(300)	not null,
+	author		varchar(300)	not null,
 
 	constraint pk_book primary key (isbn) 
 );

@@ -10,6 +10,8 @@ namespace Bookself.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Bookself.DAL;
+    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +63,7 @@ namespace Bookself.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IUserSource>().To<UserSqlDal>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["bookselfdb"].ConnectionString);
         }        
     }
 }
