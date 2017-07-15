@@ -9,10 +9,9 @@ namespace Bookself.DAL
 {
     public interface IBookSource
     {
-        List<Book> GetUsersBook(int userId);
+        List<Book> GetUsersBooks(int userId);
         Book GetBook(int bookIsbn);
         bool AddBook(Book newBook, int userId);
-        bool UpdateBook(Book bookToUpdate);
         bool DeleteBook(Book bookToDelete);
     }
 }

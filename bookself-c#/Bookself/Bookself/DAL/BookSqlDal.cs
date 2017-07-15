@@ -13,6 +13,7 @@ namespace Bookself.DAL
         private const string SQL_AddBookToUser = "INSERT INTO user_book VALUES (@isbn, @userId);";
         private const string SQL_AddNewBook = "INSERT INTO book VALUES (@isbn, @title, @author);";
         private const string SQL_GetSingleBook = "SELECT * FROM book WHERE isbn = @bookIsbn;";
+        private const string SQL_GetUsersBook = "SELECT * FROM book INNER JOIN user_book ON user_book.book_isbn = book.isbn WHERE user_book.user_id = @userId;";
         readonly string connectionString;
 
         public BookSqlDal(string databaseConnectionString)
@@ -95,14 +96,24 @@ namespace Bookself.DAL
             }
         }
 
-        public List<Book> GetUsersBook(int bookIsbn, int userId)
+        public List<Book> GetUsersBooks(int userId)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
 
-        public bool UpdateBook(Book bookToUpdate)
-        {
-            throw new NotImplementedException();
+                    List<Book> currentUsersBooks = conn.Query<Book>(SQL_GetUsersBook, new { userId = userId }).ToList();
+
+                    return currentUsersBooks;
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
+        
     }
 }
