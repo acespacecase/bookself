@@ -41,10 +41,10 @@ create table tag
 
 create table book_tag
 (
-	tag_name	varchar(100)	not null,
+	tag_id		int				not null,
 	book_isbn	int				not null,
 
-	constraint pk_booktag_tagisbn primary key (tag_name, book_isbn),
-	constraint fk_booktag_tagname foreign key (tag_name) references tag(tag_name),
+	constraint pk_booktag_tagisbn primary key (tag_id, book_isbn),
+	constraint fk_booktag_tagid foreign key (tag_id) references tag(id),
 	constraint fk_booktag_bookisbn foreign key (book_isbn) references book(isbn)
 );
