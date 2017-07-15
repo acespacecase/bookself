@@ -52,3 +52,5 @@ C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\bin\Syste
 C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\obj\Debug\Bookself.csprojResolveAssemblyReference.cache
 C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\obj\Debug\Bookself.dll
 C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\obj\Debug\Bookself.pdb
+C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\bin\Dapper.dll
+C:\Users\Stacy Harrison\Desktop\bookself\Bookself-C#\Bookself\Bookself\bin\Dapper.xml
