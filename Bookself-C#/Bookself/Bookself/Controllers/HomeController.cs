@@ -11,7 +11,11 @@ namespace Bookself.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            // if logged in, redirect to Home/Discover
+            // otherwise return Home/Index
             return View("Index");
         }
+
+
     }
 }

@@ -12,6 +12,7 @@ namespace Bookself.DAL
     {
         private const string SQL_GetAllUsersTagForABook = "SELECT tag.* FROM tag INNER JOIN book_tag ON book_tag.tag_id = tag.id INNER JOIN user_book ON book_tag.book_isbn = user_book.book_isbn WHERE user_book.[user_id] = @userId AND book_tag.book_isbn = @bookIsbn ORDER BY tag.tag_name DESC;";
         private const string SQL_DeleteTagFromBookTagTable = "DELETE FROM book_tag WHERE tag_name = @tagName;";
+        private const string SQL_GetAllUsersTagForAllBooks = "SELECT tag_name FROM tag INNER JOIN book_tag ON book_tag.tag_id = tag.id INNER JOIN user_book ON user_book.book_isbn = book_tag.book_isbn WHERE user_book.user_id = @userId;";
         readonly string connectionString;
 
         public TagSqlDal(string databaseConnectionString)
@@ -34,6 +35,23 @@ namespace Bookself.DAL
                         return true;
                     }
                     return false;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public List<Tag> AllUserTags(int userId)
+        {
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    return conn.Query<Tag>(SQL_GetAllUsersTagForAllBooks, new { userId = userId }).ToList();
                 }
             }
             catch

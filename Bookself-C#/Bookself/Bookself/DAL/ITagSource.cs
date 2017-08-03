@@ -12,5 +12,6 @@ namespace Bookself.DAL
         List<Tag> AllUserTagsForABook(int userId, int bookIsbn);
         bool AddTag(Tag newTag);
         bool DeleteTag(Tag tagToDelete);
+        List<Tag> AllUserTags(int userId);
     }
 }
